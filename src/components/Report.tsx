@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory,RouteComponentProps } from 'react-router-dom';
 import { percentageReport ,onOffGuide } from "../util/sampledata";
 
@@ -12,6 +12,9 @@ interface ReportProps extends RouteComponentProps<TParams> {
 const Report:React.FC<ReportProps> =(props) => {
   const [reportData,setReport] =React.useState<onOffGuide[]|null>(percentageReport)
    const history =  useHistory()
+   useEffect(()=>{
+     setReport(percentageReport)
+   },[])
    const {url = null} = props.match.params
    const handleReturn =()=>{
        history.goBack()
