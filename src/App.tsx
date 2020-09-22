@@ -6,7 +6,7 @@ import Report from './components/Report';
 function App() {
   return (
     <div>
-      <Route path='/' exact component={ReportContainer}></Route>
+      <Route path='/'  component={ReportContainer}></Route>
       <Route path='/report/:url' exact component={Report} ></Route>
     </div>
   );

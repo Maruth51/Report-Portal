@@ -1,9 +1,15 @@
 import * as React from "react";
 import { reports as data } from "../util/sampledata";
-import { Link } from "react-router-dom";
+import { percentageReport ,onOffGuide } from "../util/sampledata";
+import {CSVLink} from 'react-csv'
+import { Link, RouteProps,useLocation } from "react-router-dom";
 import { Modal, Form } from "react-bootstrap";
 
-const ReportContainer: React.FC = (props) => {
+const ReportContainer: React.FC<RouteProps> = (props) => {
+   const location = useLocation()
+   const {search} = location
+    const params =new URLSearchParams(search)
+    console.log(params.toString())
   const [reports, setReport] = React.useState(data);
   const [addWinState, setAddWinState] = React.useState<boolean>(false);
   const  [isReportUpdated,setReportUpdate] = React.useState<boolean|null>(false)
@@ -123,7 +129,7 @@ const Row: React.FC<RowProps> = (props) => {
                   View Report
                 </Link>
               </li>
-              <li>Export Report</li>
+              <li><CSVLink data={percentageReport} filename={`${name}.csv`} className='download-btn'>Export Report</CSVLink></li>
               <li onClick={toggleAddReportWindow}>Edit Report</li>
               <li onClick={handleDisable}>Disable Report</li>
             </ul>
