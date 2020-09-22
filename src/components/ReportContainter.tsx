@@ -1,6 +1,6 @@
 import * as React from "react";
 import { reports as data } from "../util/sampledata";
-import { percentageReport ,onOffGuide } from "../util/sampledata";
+import { percentageReport } from "../util/sampledata";
 import {CSVLink} from 'react-csv'
 import { Link, RouteProps,useLocation } from "react-router-dom";
 import { Modal, Form } from "react-bootstrap";
